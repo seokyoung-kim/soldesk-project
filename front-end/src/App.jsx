@@ -1,9 +1,14 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import MediaCard from "./components/CardList/MediaCard";
 
 const App = () => {
-
+    return (
+        <>
+        <MediaCard />
+        <MediaCard />
+        <MediaCard />
+        </>
+    )
 };
 
 export default App;
