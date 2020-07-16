@@ -26,12 +26,13 @@ export default function SelectCombo() {
             <option value={1}>의정부</option>
             <option value={2}>Option 2</option>
           </optgroup>
-          <optgroup label="Category 2">
+          <optgroup label="전라남도">
             <option value={3}>Option 3</option>
             <option value={4}>Option 4</option>
           </optgroup>
         </Select>
       </FormControl>
+      
       <FormControl className={classes.formControl}>
         <InputLabel htmlFor="grouped-select">언어</InputLabel>
         <Select defaultValue="" id="grouped-select">
