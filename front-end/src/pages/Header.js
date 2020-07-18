@@ -1,4 +1,6 @@
 import React from 'react';
+import styled from 'styled-components';
+import { Router, Link } from 'react-router-dom';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -47,31 +49,40 @@ const AntTab = withStyles((theme) => ({
   selected: {},
 }))((props) => <Tab disableRipple {...props} />);
 
-const StyledTabs = withStyles({
-  indicator: {
-    display: 'flex',
-    justifyContent: 'center',
-    backgroundColor: 'transparent',
-    '& > span': {
-      maxWidth: 40,
-      width: '100%',
-      backgroundColor: '#635ee7',
-    },
-  },
-})((props) => <Tabs {...props} TabIndicatorProps={{ children: <span /> }} />);
+const AuthToggle = styled(Link)`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  font-weight: 400;
+  color: ${props => props.theme.color.gray[4]};
+  cursor: pointer;
+`;
 
-const StyledTab = withStyles((theme) => ({
-  root: {
-    textTransform: 'none',
-    color: '#fff',
-    fontWeight: theme.typography.fontWeightRegular,
-    fontSize: theme.typography.pxToRem(15),
-    marginRight: theme.spacing(1),
-    '&:focus': {
-      opacity: 1,
-    },
-  },
-}))((props) => <Tab disableRipple {...props} />);
+// const StyledTabs = withStyles({
+//   indicator: {
+//     display: 'flex',
+//     justifyContent: 'center',
+//     backgroundColor: 'transparent',
+//     '& > span': {
+//       maxWidth: 40,
+//       width: '100%',
+//       backgroundColor: '#635ee7',
+//     },
+//   },
+// })((props) => <Tabs {...props} TabIndicatorProps={{ children: <span /> }} />);
+
+// const StyledTab = withStyles((theme) => ({
+//   root: {
+//     textTransform: 'none',
+//     color: '#fff',
+//     fontWeight: theme.typography.fontWeightRegular,
+//     fontSize: theme.typography.pxToRem(15),
+//     marginRight: theme.spacing(1),
+//     '&:focus': {
+//       opacity: 1,
+//     },
+//   },
+// }))((props) => <Tab disableRipple {...props} />);
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -99,14 +110,16 @@ export default function CustomizedTabs() {
   return (
     <div className={classes.root}>
       <div className={classes.demo1}>
+
         <AntTabs value={value} onChange={handleChange} aria-label="ant example">
           <AntTab label="Tab 1" />
           <AntTab label="Tab 2" />
           <AntTab label="Tab 3" />
           <h1>프로젝트</h1>
-          <AntTab label="회원가입" />
+          <AntTab label="회원가입"/>
           <AntTab label="로그인" />
         </AntTabs>
+
         
         <Typography className={classes.padding} />
       </div>
