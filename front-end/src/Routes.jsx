@@ -6,7 +6,7 @@ const Routes = () => {
     <>
     <Switch>
         <Route path="/signin" component={SigninPage}/>
-        <Route />
+        {/* <Route /> */}
         <Route />
         <Route />
         <Route />
