@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -105,7 +106,9 @@ export default function CustomizedTabs() {
           <AntTab label="Tab 3" />
           <h1>프로젝트</h1>
           <AntTab label="회원가입" />
-          <AntTab label="로그인" />
+          <Link to="/signin">
+            <AntTab label="로그인" />
+          </Link>
         </AntTabs>
         
         <Typography className={classes.padding} />

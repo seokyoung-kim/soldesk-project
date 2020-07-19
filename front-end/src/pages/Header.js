@@ -117,7 +117,9 @@ export default function CustomizedTabs() {
           <AntTab label="Tab 3" />
           <h1>프로젝트</h1>
           <AntTab label="회원가입"/>
+          <Link to="/signin">
           <AntTab label="로그인" />
+          </Link>
         </AntTabs>
 
         
