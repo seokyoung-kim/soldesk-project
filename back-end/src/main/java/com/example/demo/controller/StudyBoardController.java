@@ -37,7 +37,7 @@ public class StudyBoardController {
         return "redirect:/study";
     }
 
-    @RequestMapping("/{stuId}")
+    @DeleteMapping("/{stuId}")
     public String deleteStudyBoard(@PathVariable("stuId") int stuId) throws Exception {
         studyBoardService.deleteStudyBoard(stuId);
         return "redirect:/study";
