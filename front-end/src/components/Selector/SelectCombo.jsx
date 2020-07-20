@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
+    display:"inline-block",
   },
 }));
 
@@ -27,7 +28,7 @@ export default function SelectCombo() {
             <option value={2}>Option 2</option>
           </optgroup>
           <optgroup label="전라남도">
-            <option value={3}>Option 3</option>
+            <option value={3}>전주</option>
             <option value={4}>Option 4</option>
           </optgroup>
         </Select>
@@ -36,9 +37,9 @@ export default function SelectCombo() {
       <FormControl className={classes.formControl}>
         <InputLabel htmlFor="grouped-select">언어</InputLabel>
         <Select defaultValue="" id="grouped-select">
-          <MenuItem value="">
+          {/* <MenuItem value="">
             <em>None</em>
-          </MenuItem>
+          </MenuItem> */}
          
           <MenuItem value={1}>Option 1</MenuItem>
           <MenuItem value={2}>Option 2</MenuItem>

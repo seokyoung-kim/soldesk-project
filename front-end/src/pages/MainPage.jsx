@@ -10,6 +10,7 @@ import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
 import MainPagination from '../components/CardList/MainPagination';
 import Footer from './Footer';
+import SelectCombo from '../components/Selector/SelectCombo';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -112,14 +113,13 @@ export default function MainPage() {
       <CssBaseline />
       <Container maxWidth="lg">
         <Header title="개발세발" />
-        <main>
           <MainFeaturedPost post={mainFeaturedPost} />
+          <SelectCombo/>
           <Grid container spacing={4}>
             {featuredPosts.map((post) => (
               <FeaturedPost key={post.title} post={post} />
             ))}
           </Grid>
-        </main>
       </Container>
       <MainPagination className={classes.pageing}/>
       <Footer/>

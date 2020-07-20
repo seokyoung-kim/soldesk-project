@@ -3,7 +3,12 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import Pagination from "material-ui-flat-pagination";
  
-const theme = createMuiTheme();
+const theme = createMuiTheme((theme) => ({
+  root: {
+    marginTop: theme.spacing(300),
+  },
+
+}));
  
 class MainPagination extends React.Component {
   constructor(props) {
