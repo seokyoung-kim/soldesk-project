@@ -5,7 +5,6 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 
 import Header from './Header';
-import Main from './Main';
 import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
 import MainPagination from '../components/CardList/MainPagination';
@@ -14,9 +13,9 @@ import SelectCombo from '../components/Selector/SelectCombo';
 
 
 const useStyles = makeStyles((theme) => ({
-  mainGrid: {
-    marginTop: theme.spacing(3),
-  },
+  // pageing:{
+  //   background:'white'
+  // },
 
 }));
 
@@ -121,7 +120,7 @@ export default function MainPage() {
             ))}
           </Grid>
       </Container>
-      <MainPagination className={classes.pageing}/>
+      <MainPagination  />
       <Footer/>
     </React.Fragment>
   );
