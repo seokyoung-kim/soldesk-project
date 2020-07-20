@@ -12,12 +12,14 @@ import Hidden from '@material-ui/core/Hidden';
 const useStyles = makeStyles({
   card: {
     display: 'flex',
+    flexDirection :'column',
+    
   },
   cardDetails: {
     flex: 1,
   },
-  cardMedia: {
-    width: 160,
+  cardMedia: {  // 사진
+    height:250,
   },
 });
 
@@ -26,9 +28,14 @@ export default function FeaturedPost(props) {
   const { post } = props;
 
   return (
-    <Grid item xs={12} md={6}>
+    <Grid item xs={4} md={4}>
       <CardActionArea component="a" href="#">
         <Card className={classes.card}>
+          {/* 사진을 먼저 배치 */}
+          <Hidden xsDown>
+            <CardMedia className={classes.cardMedia} image={post.image} title={post.imageTitle} />
+          </Hidden>
+          {/* 사진 뒤에 상세내용 배치 */}
           <div className={classes.cardDetails}>
             <CardContent>
               <Typography component="h2" variant="h5">
@@ -45,9 +52,6 @@ export default function FeaturedPost(props) {
               </Typography>
             </CardContent>
           </div>
-          <Hidden xsDown>
-            <CardMedia className={classes.cardMedia} image={post.image} title={post.imageTitle} />
-          </Hidden>
         </Card>
       </CardActionArea>
     </Grid>

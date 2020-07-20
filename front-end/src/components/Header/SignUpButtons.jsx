@@ -2,8 +2,6 @@ import React from 'react';
 import { createMuiTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { green, blue } from '@material-ui/core/colors';
-import { Router, Link } from 'react-router-dom';
-
 
 const BootstrapButton = withStyles({
   root: {
@@ -57,7 +55,6 @@ const useStyles = makeStyles((theme) => ({
   margin: {
     margin: theme.spacing(1),
   },
- 
 }));
 
 const theme = createMuiTheme({
@@ -71,19 +68,10 @@ export default function SignUpButtons() {
 
   return (
     <div>
-      
-
-      <Link to="/signin">
-      <ColorButton variant="contained" color="primary" className={classes.margin}>
-      로그인
-      </ColorButton>
-      </Link>
-       
-      <Link to="/signup">
       <ColorButton variant="contained" color="primary" className={classes.margin}>
         회원가입
       </ColorButton>
-      </Link>
+      
     </div>
   );
 }

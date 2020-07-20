@@ -4,16 +4,20 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 
-import Header from './Header';
+import Header1 from './Header';
+import Main from './Main';
 import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
-import Main from './Main';
+import MainPagination from '../components/CardList/MainPagination';
 import Footer from './Footer';
+import HeaderButton from '../components/Header/HeaderButton';
+
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
   },
+
 }));
 
 
@@ -43,6 +47,62 @@ const featuredPosts = [
     image: 'https://source.unsplash.com/random',
     imageText: 'Image Text',
   },
+  {
+    title: 'Featured post',
+    date: 'Nov 12',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+    image: 'https://source.unsplash.com/random',
+    imageText: 'Image Text',
+  },
+  {
+    title: 'Post title',
+    date: 'Nov 11',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+    image: 'https://source.unsplash.com/random',
+    imageText: 'Image Text',
+  },
+  {
+    title: 'Post title',
+    date: 'Nov 11',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+    image: 'https://source.unsplash.com/random',
+    imageText: 'Image Text',
+  },
+  {
+    title: 'Post title',
+    date: 'Nov 11',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+    image: 'https://source.unsplash.com/random',
+    imageText: 'Image Text',
+  },
+  {
+    title: 'Post title',
+    date: 'Nov 11',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+    image: 'https://source.unsplash.com/random',
+    imageText: 'Image Text',
+  },
+  {
+    title: 'Post title',
+    date: 'Nov 11',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+    image: 'https://source.unsplash.com/random',
+    imageText: 'Image Text',
+  },
+  {
+    title: 'Post title',
+    date: 'Nov 11',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+    image: 'https://source.unsplash.com/random',
+    imageText: 'Image Text',
+  }
 ];
 
 export default function MainPage() {
@@ -52,7 +112,8 @@ export default function MainPage() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="개발세발" />
+        <Header1 title="개발세발" />
+        <HeaderButton/>
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
@@ -62,6 +123,7 @@ export default function MainPage() {
           </Grid>
         </main>
       </Container>
+      <MainPagination className={classes.pageing}/>
       <Footer/>
     </React.Fragment>
   );

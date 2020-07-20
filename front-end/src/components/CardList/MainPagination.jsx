@@ -17,13 +17,14 @@ class MainPagination extends React.Component {
  
   render() {
     return (
-      <MuiThemeProvider theme={theme}>
+      <MuiThemeProvider theme={theme} >
         <CssBaseline />
         <Pagination
           limit={10}
           offset={this.state.offset}
           total={100}
           onClick={(e, offset) => this.handleClick(offset)}
+          
         />
       </MuiThemeProvider>
     );

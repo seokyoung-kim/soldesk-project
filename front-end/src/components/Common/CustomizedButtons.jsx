@@ -69,7 +69,7 @@ export default function CustomizedButtons() {
   return (
     <div>
       <ColorButton variant="contained" color="primary" className={classes.margin}>
-        Custom CSS
+        회원가입
       </ColorButton>
       
     </div>
