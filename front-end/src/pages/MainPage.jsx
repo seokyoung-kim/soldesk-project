@@ -4,13 +4,12 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 
-import Header1 from './Header';
+import Header from './Header';
 import Main from './Main';
 import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
 import MainPagination from '../components/CardList/MainPagination';
 import Footer from './Footer';
-import HeaderButton from '../components/Header/HeaderButton';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -112,8 +111,7 @@ export default function MainPage() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header1 title="개발세발" />
-        <HeaderButton/>
+        <Header title="개발세발" />
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
