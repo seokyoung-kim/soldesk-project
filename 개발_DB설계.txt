@@ -1,0 +1,63 @@
+create table member (
+	mem_id		int(11) 		not null	auto_increment, 
+	mem_email	varchar(30) 	not null, 
+	mem_nick 	varchar(20) 	not null, 
+	mem_pass 	varchar(20) 	not null,
+	mem_opt 	smallint(3) 	not null, 	/* 일반유저는 0, 관리자는 1 */
+	CONSTRAINT member_pk PRIMARY KEY (mem_id)    
+)engine = innodb default charset = utf8 ;
+
+create table stubrd ( /* 답글없는 게시판 */
+	stu_id 		int(11) 		not null	auto_increment, 
+	mem_id		int(11) 		not null, 	/* member 참조 foreign key */ 
+	stu_subject 	varchar(50) 	not null, 	/* 글 제목 */ 
+	stu_content 	text 		not null,  /* 글 내용 */ 
+	stu_regdate 	date ,				/* 게시물 작성일자 */ 
+	stu_cnt 		smallint(7) unsigned 	, 	/* 게시물 조회수 */ 
+	stu_local 		varchar(10) 	not null, 
+	stu_lang 		varchar(10) 	not null, 
+	stu_filename 	varchar(30), 
+	stu_filesize 	int(11), 
+	CONSTRAINT stubrd_pk PRIMARY KEY (stu_id),
+    	CONSTRAINT stubrd_fk FOREIGN KEY (mem_id) REFERENCES member(mem_id)
+    
+)engine = innodb default charset = utf8 ;
+
+create table cmubrd ( /* 답글없는 게시판 */
+	cmu_id 		int(11) 		not null 	auto_increment, 
+	mem_id		int(11) 		not null, 	/* member 참조 foreign key */
+	cmu_subject 	varchar(50) 	not null, 	/* 글 제목 */
+	cmu_content 	text 		not null,  	/* 글 내용 */
+	cmu_regdate 	date ,				/* 게시물 작성일자 */
+	cmu_cnt 		smallint(7) unsigned 	, 	/* 게시물 조회수 */
+	cmu_filename 	varchar(30), 
+	cmu_filesize 	int(11), 
+	CONSTRAINT cmubrd_pk PRIMARY KEY (cmu_id),
+    	CONSTRAINT cmubrd_fk FOREIGN KEY (mem_id) REFERENCES member(mem_id)
+)engine = innodb default charset = utf8;
+
+create table sturepl ( /* 스터디 게시판의 댓글, 대댓글 */
+	strp_id 		int(11) 		not null	auto_increment, 
+	stu_id 		int(11) 		not null	, /* 게시판 글 참조 foreign key */ 	
+	mem_id		int(11) 		not null, 	/* member 참조 foreign key */ 
+	strp_content 	text 		not null,  	/* 글 내용 */
+	strp_regdate 	date , 				/* 게시물 작성일자 */
+	strp_pos 		smallint(7) unsigned	, 	/* 게시물의 상대위치 저장 */	
+	strp_ref 		smallint(7) 		, 	/* 게시물이 답변 글일 경우, 소속된 부모 글 번호 */
+	strp_depth 	smallint(7) unsigned 	, 	/* 게시물이 답변 글일 경우, 답변의 깊이 */
+	CONSTRAINT sturepl_pk PRIMARY KEY (strp_id),
+    	CONSTRAINT sturepl_fk FOREIGN KEY (mem_id) REFERENCES member(mem_id)
+)engine = innodb default charset = utf8;
+
+create table cmurepl ( /* 커뮤니티 게시판 댓글, 대댓글 */ 
+	cmrp_id 		int(11) 		not null	auto_increment, 
+	cmu_id 		int(11) 		not null 	, /* 게시판 글 참조 foreign key */ 
+	mem_id		int(11) 		not null, 	/* member 참조 foreign key */ 
+	cmrp_content 	text 		not null,  	/* 글 내용 */
+	cmrp_regdate 	date ,				/* 게시물 작성일자 */
+	cmrp_pos 	smallint(7) unsigned	, 	/* 게시물의 상대위치 저장 */	
+	cmrp_ref 		smallint(7) 		, 	/* 게시물이 답변 글일 경우, 소속된 부모 글 번호 */
+	cmrp_depth 	smallint(7) unsigned 	, 	/* 게시물이 답변 글일 경우, 답변의 깊이 */
+	CONSTRAINT cmurepl_pk PRIMARY KEY (cmrp_id),
+    	CONSTRAINT cmurepl_fk FOREIGN KEY (mem_id) REFERENCES member(mem_id)
+)engine = innodb default charset = utf8;
