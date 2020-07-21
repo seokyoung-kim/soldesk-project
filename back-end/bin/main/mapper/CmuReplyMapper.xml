@@ -25,7 +25,7 @@
 			SELECT
 				user_nick,
                 cmrp_content,
-				DATE_FORMAT(cmu_createdDate, '%Y.%m.%d %H:%i:%s') AS cmrp_createdDate
+				DATE_FORMAT(cmrp_createdDate, '%Y.%m.%d %H:%i:%s') AS cmrp_createdDate
 			FROM
 				cmu_reply,user_list
             WHERE
