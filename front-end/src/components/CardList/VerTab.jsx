@@ -5,6 +5,10 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import MainPagination from './MainPagination';
+import SelectCombo from '../Selector/SelectCombo';
+import InputMulti from '../Write/InputMulti';
+import InputOne from '../Write/InputOne';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -44,10 +48,12 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
     display: 'flex',
-    height: 224,
+    height: 1000, //  높이 지정 다시 해야 할 듯 
+    margin: theme.spacing(1),
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
+    marginBottom: theme.spacing(100),
   },
 }));
 
@@ -69,35 +75,51 @@ export default function VerTab() {
         aria-label="Vertical tabs example"
         className={classes.tabs}
       >
-        <Tab label="Item One" {...a11yProps(0)} />
-        <Tab label="Item Two" {...a11yProps(1)} />
-        <Tab label="Item Three" {...a11yProps(2)} />
-        <Tab label="Item Four" {...a11yProps(3)} />
-        <Tab label="Item Five" {...a11yProps(4)} />
-        <Tab label="Item Six" {...a11yProps(5)} />
-        <Tab label="Item Seven" {...a11yProps(6)} />
+        <Tab label="내 정보" {...a11yProps(0)} />
+        <Tab label="스터디 등록" {...a11yProps(1)} />
+        <Tab label="북마크" {...a11yProps(2)} />
+    
       </Tabs>
       <TabPanel value={value} index={0}>
-        Item One
+        ㄴㄴㄴ
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <div>
+          <div>
+            스터디원을 모집하고 싶은 지역과 언어를 지정해주세요
+            <SelectCombo/>
+          </div>
+         
+          <div>
+            제목을 적어주세요
+
+
+
+
+
+
+
+          </div>
+          <div>
+            <InputOne/>
+          </div>
+          <div>
+            <InputMulti/>
+          </div>
+
+
+
+
+
+
+
+        </div>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <MainPagination/>
       </TabPanel>
-      <TabPanel value={value} index={3}>
-        Item Four
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-        Item Five
-      </TabPanel>
-      <TabPanel value={value} index={5}>
-        Item Six
-      </TabPanel>
-      <TabPanel value={value} index={6}>
-        Item Seven
-      </TabPanel>
+
+
     </div>
   );
 }

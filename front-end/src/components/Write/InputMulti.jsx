@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {
       margin: theme.spacing(1),
-      width: '125ch',
+      width: '100ch', //넓이 조절
       
     },
   },
@@ -24,13 +24,15 @@ export default function InputMulti() {
     <form className={classes.root} noValidate autoComplete="off">
     
       <div>
+        <h3>자세한 내용을 작성해주세요</h3>
        
         <TextField
           id="outlined-multiline-static"
-          label="Multiline"
-          multiline
-          rows={15}
-          defaultValue="Default Value"
+          label="장소 및 시간 등 자세한 내용을 작성해주세요"
+          
+          multiline //스크롤 유무 차이
+          rows={15} // 높이 조절
+          defaultValue="ex) 종각역 7시 평일 월화 스터디원 모집합니다! "
           variant="outlined"
         />
       </div>

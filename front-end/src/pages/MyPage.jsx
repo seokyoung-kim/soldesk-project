@@ -1,12 +1,14 @@
 import React from "react";
-import MainPagination from "../components/Common/MainPagination";
 import VerTab from "../components/CardList/VerTab";
+import Header from './Header';
+
 
 const MyPage = () => {
     return (
         <>
-            <MainPagination/>
+            <Header title="개발세발" />
             <VerTab />
+           
         </>
     )
 }

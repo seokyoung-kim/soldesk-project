@@ -95,6 +95,13 @@ export default function HeaderButton() {
         회원가입
       </ColorButton>
       </Link>
+
+      <Link to="/mypage"  style={{textDecoration:'none'}}>
+      <Button>
+        {/*  <Button color="primary"> <Button color="secondary"> */}
+      마이페이지
+    </Button>
+      </Link>
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import { createMuiTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import { Router, Link } from 'react-router-dom';
 import HeaderButton from '../components/Header/HeaderButton';
 
