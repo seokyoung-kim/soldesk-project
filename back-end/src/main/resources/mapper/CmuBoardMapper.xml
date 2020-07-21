@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTDMapper3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.CmuBoardMapper">
+
+    <insert id="insertCmuBoard" parameterType="com.example.demo.dto.CmuBoardDto"
+			useGeneratedKeys="true" keyProperty="cmuId">
+		<![CDATA[
+		INSERT INTO cmu_board
+		(
+			cmu_title,
+			cmu_content,
+			cmu_createdDate
+			
+		)
+		VALUES
+		(
+			#{cmuTitle},
+			#{cmuContent},
+			NOW()
+		)
+		]]>
+	</insert>
+
+    <select id="selectCmuBoardList" resultType="com.example.demo.dto.CmuBoardDto">
+		<![CDATA[
+			SELECT
+				cmu_id,
+				user_id,
+                cmu_title,
+				cmu_hitCnt,
+				DATE_FORMAT(cmu_createdDate, '%Y.%m.%d %H:%i:%s') AS cmu_createdDate
+			FROM
+				cmu_board
+			ORDER BY stu_id DESC
+		]]>
+
+	</select>
+
+    <select id="selectCmuBoardDetail" resultType="com.example.demo.dto.CmuBoardDto"
+            parameterType="int">
+		<![CDATA[
+			SELECT
+				cmu_id,
+                user_id,
+				cmu_title,
+				cmu_content,
+				cmu_hitCnt,
+				DATE_FORMAT(cmu_createdDate, '%Y.%m.%d %H:%i:%s') AS cmu_createdDate
+			FROM
+				cmu_board
+			WHERE
+				cmu_id = #{cmuId}
+		]]>
+
+	</select>
+
+	<update id="updateCmuHitCount" parameterType="int">
+		<![CDATA[
+			UPDATE
+				cmu_board
+			SET
+				cmu_hitCnt = cmu_hitCnt + 1
+			WHERE
+				cmu_id = #{cmuId}
+		]]>
+	</update>
+
+
+	<delete id="deleteCmuBoard" parameterType="int">
+		<![CDATA[
+			DELETE FROM cmu_board
+			WHERE
+				cmu_id = #{cmuId}
+		]]>
+
+	</delete>
+
+    <update id="updateCmuBoard" parameterType="com.example.demo.dto.CmuBoardDto">
+		<![CDATA[
+			UPDATE
+				cmu_board
+			SET
+				cmu_title = #{cmuTitle},
+				cmu_content = #{cmuContent},
+				cmu_createdDate = Now()
+			WHERE
+				cmu_id = #{cmuId}
+		]]>
+	</update>
+
+</mapper>

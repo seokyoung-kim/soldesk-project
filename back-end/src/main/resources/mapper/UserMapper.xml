@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTDMapper3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.UserMapper">
+
+    <select id="userList" resultType="com.example.demo.dto.UserDto">
+		<![CDATA[
+			SELECT
+				user_id,
+				user_email,
+                user_nick,
+                user_pass,
+                user_opt
+			FROM
+				user_list
+			ORDER BY user_id DESC
+		]]>
+
+	</select>
+
+    <select id="fetchUserByuserID" resultType="com.example.demo.dto.UserDto"
+		parameterType="int">
+        <![CDATA[
+            SELECT
+                *
+            FROM
+                user_list
+            WHERE
+                userId = #{userId}
+        ]]>
+	</select>
+
+    <insert id="insertUser" parameterType="com.example.demo.dto.UserDto"
+		useGeneratedKeys="true" keyProperty="userId">
+		<![CDATA[
+		INSERT INTO user_list
+		(
+			user_email,
+            user_nick,
+            user_pass,
+            user_opt
+		)
+		VALUES
+		(
+			#{userEmail},
+			#{userNick},
+			#{userPass},
+			#{userOpt}
+		)
+		]]>
+	</insert>
+
+    <update id="updateUser" parameterType="com.example.demo.dto.UserDto">
+		<![CDATA[
+			UPDATE
+				user_list
+			SET
+				user_email = #{userEmail},
+				user_nick = #{userNick},
+				user_pass = #{userPass},
+				user_opt = #{userOpt},
+			WHERE
+				user_id = #{userId}
+		]]>
+	</update>
+
+
+	<delete id="deleteUser" parameterType="int">
+		<![CDATA[
+			DELETE FROM user_list
+			WHERE
+				user_id = #{userId}
+		]]>
+
+	</delete>
+
+    
+</mapper>

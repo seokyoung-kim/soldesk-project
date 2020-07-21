@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTDMapper3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.StudyBoardMapper">
+
+    <insert id="insertStudyBoard" parameterType="com.example.demo.dto.StudyBoardDto"
+			useGeneratedKeys="true" keyProperty="stuId">
+		<![CDATA[
+		INSERT INTO stu_board
+		(
+			stu_title,
+			stu_content,
+			stu_createdDate,
+			stu_local,
+			stu_lang
+		)
+		VALUES
+		(
+			#{stuTitle},
+			#{stuContent},
+			NOW(),
+			#{stuLocal},
+			#{stuLang}
+		)
+		]]>
+	</insert>
+
+    <select id="selectStudyBoardList" resultType="com.example.demo.dto.StudyBoardDto">
+		<![CDATA[
+			SELECT
+				stu_id,
+				stu_title,
+				stu_local,
+				stu_lang,
+				stu_hitCnt,
+				DATE_FORMAT(stu_createdDate, '%Y.%m.%d %H:%i:%s') AS stu_createdDate
+			FROM
+				stu_board
+			ORDER BY stu_id DESC
+		]]>
+
+	</select>
+
+    <select id="selectStudyBoardDetail" resultType="com.example.demo.dto.StudyBoardDto"
+            parameterType="int">
+		<![CDATA[
+			SELECT
+				stu_id,
+				stu_title,
+				stu_content,
+				stu_local,
+				stu_lang,
+				stu_hitCnt,
+				DATE_FORMAT(stu_createdDate, '%Y.%m.%d %H:%i:%s') AS stu_createdDate
+			FROM
+				stu_board
+			WHERE
+				stu_id = #{stuId}
+		]]>
+
+	</select>
+
+	<update id="updateStudyHitCount" parameterType="int">
+		<![CDATA[
+			UPDATE
+				stu_board
+			SET
+				stu_hitCnt = stu_hitCnt + 1
+			WHERE
+				stu_id = #{stuId}
+		]]>
+	</update>
+
+
+	<delete id="deleteStudyBoard" parameterType="int">
+		<![CDATA[
+			DELETE FROM stu_board
+			WHERE
+				stu_id = #{stuId}
+		]]>
+
+	</delete>
+
+	<update id="updateStudyBoard"
+			parameterType="com.example.demo.dto.StudyBoardDto">
+		<![CDATA[
+			UPDATE
+				stu_board
+			SET
+				stu_title = #{stuTitle},
+				stu_content = #{stuContent},
+				stu_createdDate = Now(),
+				stu_local = #{stuLocal},
+				stu_lang = #{stuLang}
+			WHERE
+				stu_id = #{stuId}
+		]]>
+	</update>
+</mapper>
