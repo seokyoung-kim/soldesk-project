@@ -82,19 +82,19 @@
 
 	</delete>
 
-	<update id="updateStudyBoard"
-			parameterType="com.example.demo.dto.StudyBoardDto">
+    <update id="updateStudyBoard" parameterType="com.example.demo.dto.StudyBoardDto">
 		<![CDATA[
 			UPDATE
 				stu_board
 			SET
 				stu_title = #{stuTitle},
 				stu_content = #{stuContent},
-				stu_createdDate = Now(),
 				stu_local = #{stuLocal},
-				stu_lang = #{stuLang}
+				stu_lang = #{stuLang},
+				stu_createdDate = Now()
 			WHERE
 				stu_id = #{stuId}
 		]]>
 	</update>
+
 </mapper>
