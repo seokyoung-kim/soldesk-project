@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTDMapper3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.CmuReplyMapper">
+
+    <insert id="insertCmuReply" parameterType="com.example.demo.dto.CmuReplyDto"
+			useGeneratedKeys="true" keyProperty="cmrpId">
+		<![CDATA[
+		INSERT INTO cmu_Reply
+		(
+			cmrp_content,
+			cmrp_createdDate
+		)
+		VALUES
+		(
+			#{cmrpContent},
+			NOW()
+		)
+		]]>
+	</insert>
+
+    <select id="selectCmuReplyList" resultType="com.example.demo.dto.CmuReplyDto">
+		<![CDATA[
+			SELECT
+				user_nick,
+                cmrp_content,
+				DATE_FORMAT(cmu_createdDate, '%Y.%m.%d %H:%i:%s') AS cmrp_createdDate
+			FROM
+				cmu_reply,user_list
+            WHERE
+                cmu_reply.user_id = user_list.user_id
+			
+		]]>
+
+	</select>
+
+
+
+	<delete id="deleteCmuReply" parameterType="int">
+		<![CDATA[
+			DELETE FROM cmu_reply
+			WHERE
+				cmrp_id = #{cmrpId}
+		]]>
+
+	</delete>
+
+    <update id="updateCmuReply" parameterType="com.example.demo.dto.CmuReplyDto">
+		<![CDATA[
+			UPDATE
+				cmu_reply
+			SET
+				cmrp_content = #{cmuContent},
+				cmrp_createdDate = Now()
+			WHERE
+				cmrp_id = #{cmrpId}
+		]]>
+	</update>
+
+</mapper>

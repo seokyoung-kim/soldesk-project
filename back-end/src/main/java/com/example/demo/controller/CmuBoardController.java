@@ -38,7 +38,7 @@ public class CmuBoardController {
     }
 
     @RequestMapping("/{cmuId}")
-    public String deleteStudyBoard(@PathVariable("cmuId") int cmuId) throws Exception {
+    public String deleteCmuBoard(@PathVariable("cmuId") int cmuId) throws Exception {
         cmuBoardService.deleteCmuBoard(cmuId);
         return "redirect:/cmu";
     }
