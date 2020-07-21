@@ -51,7 +51,7 @@
 			UPDATE
 				cmu_reply
 			SET
-				cmrp_content = #{cmuContent},
+				cmrp_content = #{cmrpContent},
 				cmrp_createdDate = Now()
 			WHERE
 				cmrp_id = #{cmrpId}
