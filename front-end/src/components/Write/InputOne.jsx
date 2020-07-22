@@ -24,7 +24,7 @@ export default function InputOne() {
       <div>
         <TextField
           id="outlined-full-width"
-          label="스터디 모집에 대한 간단한 소개글을 작성해주세요"
+          label="제목을 작성해주세요"
           style={{ margin: 8 }}
           // 평일 가능 스터디 모집!
           placeholder="ex) C언어 기초공사 스터디"

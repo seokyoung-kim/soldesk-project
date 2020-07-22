@@ -9,7 +9,7 @@ import Select from '@material-ui/core/Select';
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120,
+    minWidth: 50,
     display:"inline-block",
   },
 }));
@@ -19,6 +19,23 @@ export default function SelectCombo() {
 
   return (
     <div>
+      <FormControl className={classes.formControl}>
+        <InputLabel htmlFor="grouped-select">언어</InputLabel>
+        <Select defaultValue="" id="grouped-select">
+          {/* <MenuItem value="">
+            <em>None</em>
+          </MenuItem> */}
+         
+          <MenuItem value={1}>C</MenuItem>
+          <MenuItem value={2}>C#</MenuItem>
+          <MenuItem value={3}>C++</MenuItem>
+          <MenuItem value={4}>JAVA</MenuItem>
+          <MenuItem value={5}>JS</MenuItem>
+          <MenuItem value={6}>SQL</MenuItem>
+          <MenuItem value={7}>기타</MenuItem>
+        </Select>
+      </FormControl>
+
       <FormControl className={classes.formControl}>
         <InputLabel htmlFor="grouped-native-select">지역</InputLabel>
         <Select native defaultValue="" id="grouped-native-select">
@@ -41,20 +58,6 @@ export default function SelectCombo() {
         </Select>
       </FormControl>
       
-      <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="grouped-select">언어</InputLabel>
-        <Select defaultValue="" id="grouped-select">
-          {/* <MenuItem value="">
-            <em>None</em>
-          </MenuItem> */}
-         
-          <MenuItem value={1}>Option 1</MenuItem>
-          <MenuItem value={2}>Option 2</MenuItem>
-          <MenuItem value={3}>Option 3</MenuItem>
-          <MenuItem value={4}>Option 4</MenuItem>
-          <MenuItem value={5}>기타</MenuItem>
-        </Select>
-      </FormControl>
     </div>
   );
 }

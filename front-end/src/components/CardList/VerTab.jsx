@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import MainPagination from './MainPagination';
 import SelectCombo from '../Selector/SelectCombo';
+import SearchSelect from '../Selector/SearchSelect';
 import InputMulti from '../Write/InputMulti';
 import InputOne from '../Write/InputOne';
 
@@ -50,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     height: 1000, //  높이 지정 다시 해야 할 듯 
     margin: theme.spacing(1),
+    
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
@@ -81,23 +83,22 @@ export default function VerTab() {
     
       </Tabs>
       <TabPanel value={value} index={0}>
-        ㄴㄴㄴ
+      <SearchSelect/> {/* 검색창   */}
       </TabPanel>
       <TabPanel value={value} index={1}>
         <div>
           <div>
-            스터디원을 모집하고 싶은 지역과 언어를 지정해주세요
-            <SelectCombo/>
+          <Typography componet="h6" variant="h6" gutterBottom>
+            언어 / 지역 
+          </Typography>
+          <SelectCombo/>
           </div>
          
           <div>
-            제목을 적어주세요
 
-
-
-
-
-
+          <Typography componet="h6" variant="h6" gutterBottom>
+          제목을 적어주세요
+          </Typography>
 
           </div>
           <div>
@@ -106,13 +107,6 @@ export default function VerTab() {
           <div>
             <InputMulti/>
           </div>
-
-
-
-
-
-
-
         </div>
       </TabPanel>
       <TabPanel value={value} index={2}>

@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import { createMuiTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import { green, blue } from '@material-ui/core/colors';
 import { Router, Link } from 'react-router-dom';
-import { InputBase } from '@material-ui/core';
+
 
 
 const BootstrapButton = withStyles({
@@ -79,7 +79,11 @@ export default function HeaderButton() {
 
   return (
     <div className={classes.root}>
+
+    <Link to="/"  style={{textDecoration:'none'}}>
     <h1>Pro</h1>
+    </Link>
+
     <Button>소개</Button>
     <Button>커뮤니티</Button>
 
