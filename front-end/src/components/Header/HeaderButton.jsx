@@ -3,8 +3,7 @@ import Button from '@material-ui/core/Button';
 import { createMuiTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import { green, blue } from '@material-ui/core/colors';
 import { Router, Link } from 'react-router-dom';
-
-
+import { Grid } from '@material-ui/core';
 
 const BootstrapButton = withStyles({
   root: {
@@ -60,16 +59,10 @@ const theme = createMuiTheme({
   },
 });
 
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
       margin: theme.spacing(1),
-      display:"inline-block",
-
-
-      
     },
   },
 }));
@@ -79,33 +72,40 @@ export default function HeaderButton() {
 
   return (
     <div className={classes.root}>
+        
+  <Grid
+  container
+  direction="row"
+  justify="space-evenly"
+  alignItems="baseline">
 
-    <Link to="/"  style={{textDecoration:'none'}}>
+  <Link to="/"  style={{textDecoration:'none'}}>
     <h1>Pro</h1>
-    </Link>
+  </Link>
 
-    <Button>소개</Button>
-    <Button>커뮤니티</Button>
+  <Grid item xs></Grid>
+  <Button>소개</Button>
+  <Button>커뮤니티</Button>
 
-    <Link to="/signin"  style={{textDecoration:'none'}}>
-    <Button>
-        {/*  <Button color="primary"> <Button color="secondary"> */}
-      로그인
-    </Button>
-      </Link>
-       
-      <Link to="/signup"  style={{textDecoration:'none'}}>
-      <ColorButton variant="contained" color="primary" className={classes.margin} >
+        <Link to="/signin"  style={{textDecoration:'none'}}>
+        <Button>
+        로그인
+        </Button>
+        </Link>
+          
+        <Link to="/signup"  style={{textDecoration:'none'}}>
+        <ColorButton variant="contained" color="primary" className={classes.margin} >
         회원가입
-      </ColorButton>
-      </Link>
+        </ColorButton>
+        </Link>
 
-      <Link to="/mypage"  style={{textDecoration:'none'}}>
-      <Button>
+        <Link to="/mypage"  style={{textDecoration:'none'}}>
+        <Button>
         {/*  <Button color="primary"> <Button color="secondary"> */}
-      마이페이지
-    </Button>
-      </Link>
+        마이페이지
+        </Button>
+        </Link>
+      </Grid>
     </div>
   );
 }
