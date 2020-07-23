@@ -47,14 +47,20 @@ const ColorButton = withStyles((theme) => ({
     backgroundColor: purple[500],
     '&:hover': {
       backgroundColor: purple[700],
+      
     },
   },
 }))(Button);
 
 const useStyles = makeStyles((theme) => ({
   margin: {
+    width:'30ch',
     margin: theme.spacing(1),
   },
+  small:{
+    width:'10ch',
+    margin: theme.spacing(1),
+  }
 }));
 
 const theme = createMuiTheme({
@@ -68,10 +74,22 @@ export default function CustomizedButtons() {
 
   return (
     <div>
-      <ColorButton variant="contained" color="primary" className={classes.margin}>
-        회원가입
+      {/* 모집완료/삭제 => yes/no 창띄우기*/}
+      <ColorButton variant="contained" color="primary" className={classes.margin} onClick={() => { alert('스터디 모집을 완료하시겠습니까?') }}>
+        모집완료
+      </ColorButton>
+
+      <ColorButton variant="contained" color="primary" fullWidth>
+        글쓰기
+      </ColorButton>
+
+      <ColorButton variant="contained" color="primary" className={classes.small}>
+        수정
       </ColorButton>
       
+      <ColorButton variant="contained" color="primary" className={classes.small}>
+        삭제
+      </ColorButton>
     </div>
   );
 }

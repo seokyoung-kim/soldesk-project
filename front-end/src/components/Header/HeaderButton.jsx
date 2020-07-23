@@ -79,15 +79,21 @@ export default function HeaderButton() {
   justify="space-evenly"
   alignItems="baseline">
 
-  <Link to="/"  style={{textDecoration:'none'}}>
-    <h1>Pro</h1>
-  </Link>
+    <Link to="/"  style={{textDecoration:'none'}}>
+      <h1>Pro</h1>
+    </Link>
 
-  <Grid item xs></Grid>
-  <Button>소개</Button>
-  <Button>커뮤니티</Button>
+    <Grid item xs></Grid>
+    
+      <Link to="/about"  style={{textDecoration:'none'}}>
+        <Button>소개</Button>
+      </Link>
+    
+      <Link to="/community"  style={{textDecoration:'none'}}>
+        <Button>커뮤니티</Button>
+      </Link>
 
-        <Link to="/signin"  style={{textDecoration:'none'}}>
+    <Link to="/signin"  style={{textDecoration:'none'}}>
         <Button>
         로그인
         </Button>

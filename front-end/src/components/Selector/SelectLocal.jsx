@@ -1,17 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
 const useStyles = makeStyles((theme) => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 50,
-    display:"inline-block",
-  },
+ 
 }));
 
 export default function SelectCombo() {
@@ -19,24 +13,7 @@ export default function SelectCombo() {
 
   return (
     <div>
-      <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="grouped-select">언어</InputLabel>
-        <Select defaultValue="" id="grouped-select">
-          {/* <MenuItem value="">
-            <em>None</em>
-          </MenuItem> */}
-         
-          <MenuItem value={1}>C</MenuItem>
-          <MenuItem value={2}>C#</MenuItem>
-          <MenuItem value={3}>C++</MenuItem>
-          <MenuItem value={4}>JAVA</MenuItem>
-          <MenuItem value={5}>JS</MenuItem>
-          <MenuItem value={6}>SQL</MenuItem>
-          <MenuItem value={7}>기타</MenuItem>
-        </Select>
-      </FormControl>
-
-      <FormControl className={classes.formControl}>
+      <FormControl >
         <InputLabel htmlFor="grouped-native-select">지역</InputLabel>
         <Select native defaultValue="" id="grouped-native-select">
           <option aria-label="None" value="" />
@@ -57,7 +34,6 @@ export default function SelectCombo() {
           </optgroup>
         </Select>
       </FormControl>
-      
     </div>
   );
 }

@@ -9,15 +9,11 @@ import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
 import MainPagination from '../components/CardList/MainPagination';
 import Footer from './Footer';
-import SelectCombo from '../components/Selector/SelectCombo';
+import SelectLang from '../components/Selector/SelectLang';
+import SelectLocal from '../components/Selector/SelectLocal';
+import SearchSelect from '../components/Selector/SearchSelect';
 
 
-const useStyles = makeStyles((theme) => ({
-  // pageing:{
-  //   background:'white'
-  // },
-
-}));
 
 
 const mainFeaturedPost = {
@@ -104,6 +100,13 @@ const featuredPosts = [
   }
 ];
 
+const useStyles = makeStyles((theme) => ({
+  formControl: {
+    margin: theme.spacing(4),
+    minWidth: 100, // 언어와 지역간의 넓이가 조절이 되네???
+  }
+}));
+
 export default function MainPage() {
   const classes = useStyles();
 
@@ -113,14 +116,30 @@ export default function MainPage() {
       <Container maxWidth="lg">
         <Header title="개발세발" />
           <MainFeaturedPost post={mainFeaturedPost} />
-          <SelectCombo/>
+          <Grid container
+          spacing={1}
+          container
+          direction="row"
+          alignItems="flex-end"
+         justify="center" className={classes.formControl}>
+           <Grid container item xs={3}>
+            <SearchSelect/>
+            </Grid>
+            <Grid container item xs={1}>
+            <SelectLang/>
+            </Grid>
+            <Grid container item xs={1}>
+            <SelectLocal/>
+            </Grid>
+          </Grid>
+          
           <Grid container spacing={4}>
             {featuredPosts.map((post) => (
               <FeaturedPost key={post.title} post={post} />
             ))}
           </Grid>
       </Container>
-      <MainPagination  />
+      <MainPagination />
       <Footer/>
     </React.Fragment>
   );

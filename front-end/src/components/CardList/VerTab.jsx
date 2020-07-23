@@ -6,10 +6,12 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import MainPagination from './MainPagination';
-import SelectCombo from '../Selector/SelectCombo';
+import SelectLang from '../Selector/SelectLang';
+import SelectLocal from '../Selector/SelectLocal';
 import SearchSelect from '../Selector/SearchSelect';
 import InputMulti from '../Write/InputMulti';
 import InputOne from '../Write/InputOne';
+import CustomizedButtons from '../Common/CustomizedButtons';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -50,12 +52,12 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     display: 'flex',
     height: 1000, //  높이 지정 다시 해야 할 듯 
-    margin: theme.spacing(1),
+    // margin: theme.spacing(1),
     
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
-    marginBottom: theme.spacing(100),
+    // marginBottom: theme.spacing(100),
   },
 }));
 
@@ -84,36 +86,43 @@ export default function VerTab() {
       </Tabs>
       <TabPanel value={value} index={0}>
       <SearchSelect/> {/* 검색창   */}
+
+      <CustomizedButtons/>
+      
       </TabPanel>
+
+      {/* 스터디 등록 */}
       <TabPanel value={value} index={1}>
         <div>
           <div>
-          <Typography componet="h6" variant="h6" gutterBottom>
+          <Typography componet="h8" variant="h8">
             언어 / 지역 
           </Typography>
-          <SelectCombo/>
+          <SelectLocal/>
+          
+          <Typography componet="h8" variant="h8">
+            언어 / 지역 
+          </Typography>
+          <SelectLang/>
           </div>
          
           <div>
 
-          <Typography componet="h6" variant="h6" gutterBottom>
+          <Typography componet="h8" variant="h8">
           제목을 적어주세요
           </Typography>
+          <InputOne/>
 
-          </div>
-          <div>
-            <InputOne/>
           </div>
           <div>
             <InputMulti/>
           </div>
         </div>
       </TabPanel>
+
       <TabPanel value={value} index={2}>
         <MainPagination/>
       </TabPanel>
-
-
     </div>
   );
 }

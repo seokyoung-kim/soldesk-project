@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {
       margin: theme.spacing(1),
-      width: '100ch', //넓이 조절
+      width: '70ch', //넓이 조절
       
     },
   },
