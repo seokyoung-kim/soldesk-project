@@ -54,11 +54,6 @@ const ColorButton = withStyles((theme) => ({
 
 const useStyles = makeStyles((theme) => ({
   margin: {
-    width:'30ch',
-    margin: theme.spacing(1),
-  },
-  small:{
-    width:'14ch',
     margin: theme.spacing(1),
   }
 }));
@@ -69,26 +64,20 @@ const theme = createMuiTheme({
   },
 });
 
-export default function CustomizedButtons() {
+export default function WriteFormButton() {
   const classes = useStyles();
 
   return (
     <div>
-      {/* 모집완료/삭제 => yes/no 창띄우기*/}
-      <div>
-      <ColorButton variant="contained" color="primary" className={classes.margin} onClick={() => { alert('스터디 모집을 완료하시겠습니까?') }}>
-        모집완료
+      <ColorButton variant="contained" color="primary" fullWidth className={classes.margin}>
+        글쓰기
       </ColorButton>
-      </div>
-      <div>
-      <ColorButton variant="contained" color="primary" className={classes.small}>
-        수정
-      </ColorButton>
-      
-      <ColorButton variant="contained" color="primary" className={classes.small}>
-        삭제
-      </ColorButton>
-      </div>
+
+{/* 커뮤니티 글쓰기 버튼에서 로그인 후 이용해달라는 액션 필요
+      <ColorButton variant="contained" color="primary" fullWidth  onClick={() => { alert('로그인 후 이용해 주세요') }} className={classes.margin}>
+        글쓰기
+      </ColorButton> */}
+
     </div>
   );
 }

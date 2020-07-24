@@ -5,17 +5,20 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
 const useStyles = makeStyles((theme) => ({
- 
+  fixedLabel:{
+    width:100,
+  }
+
 }));
 
-export default function SelectCombo() {
+export default function SelectLocal() {
   const classes = useStyles();
 
   return (
     <div>
       <FormControl >
         <InputLabel htmlFor="grouped-native-select">지역</InputLabel>
-        <Select native defaultValue="" id="grouped-native-select">
+        <Select className={classes.fixedLabel}  native defaultValue="" id="grouped-native-select">
           <option aria-label="None" value="" />
           <optgroup label="서울">
             <option value={1}>서울</option>

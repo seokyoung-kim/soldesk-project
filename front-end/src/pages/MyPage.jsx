@@ -1,5 +1,5 @@
 import React from "react";
-import VerTab from "../components/CardList/VerTab";
+import VerTab from "../components/VerticalTree/VerTab";
 import Header from './Header';
 import CssBaseline from "@material-ui/core/CssBaseline"
 import Container from '@material-ui/core/Container';

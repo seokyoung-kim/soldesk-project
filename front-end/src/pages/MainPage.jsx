@@ -104,7 +104,11 @@ const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(4),
     minWidth: 100, // 언어와 지역간의 넓이가 조절이 되네???
+  },
+  marginValue:{
+    marginBottom: theme.spacing(3),
   }
+
 }));
 
 export default function MainPage() {
@@ -113,16 +117,17 @@ export default function MainPage() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="lg">
+      <Container maxWidth="lg"   className={classes.marginValue}>
         <Header title="개발세발" />
           <MainFeaturedPost post={mainFeaturedPost} />
+
           <Grid container
           spacing={1}
           container
           direction="row"
           alignItems="flex-end"
          justify="center" className={classes.formControl}>
-           <Grid container item xs={3}>
+           <Grid container item xs={2}>
             <SearchSelect/>
             </Grid>
             <Grid container item xs={1}>
@@ -139,7 +144,7 @@ export default function MainPage() {
             ))}
           </Grid>
       </Container>
-      <MainPagination />
+      <MainPagination/>
       <Footer/>
     </React.Fragment>
   );

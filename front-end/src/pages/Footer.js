@@ -23,6 +23,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     // marginTop: theme.spacing(8),
     padding: theme.spacing(6, 0),
+    // borderTop: `1px solid ${theme.palette.divider}`, // 구분선
+    marginTop :theme.spacing(5),
   },
 }));
 
